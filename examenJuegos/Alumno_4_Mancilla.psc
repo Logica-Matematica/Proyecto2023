@@ -1,258 +1,123 @@
-Algoritmo Alumno_4_Mancilla
+Funcion acertadaJugador1=ronda(nickname1,nickname2) //OSCAR MANCILLA CANAVIRI
 	numeroAleatorio=aleatorio(100,999)
 	aleatorioEnCaracter=ConvertirATexto(numeroAleatorio)
 	digitoDelMedio=ConvertirANumero(subcadena(aleatorioEnCaracter,2,2))
-	Imprimir digitoDelMedio
-	Escribir " intenta adivinar el numero del medio del numero aleatorio"
+	Escribir nickname1, " intenta adivinar el numero del medio del numero aleatorio"
 	Leer respuesta1
 	Si respuesta1=digitoDelMedio Entonces
-		Imprimir "Felicidades acertaste"
-		acertadaJugador1=1
+		Imprimir "Felicidades acertaste ", nickname1
+		acertadaJugador=1
 		
 	SiNo
 		Escribir "incorrecto te quedan 2 intentos :D"
 		Leer respuesta1
 		Si respuesta1=digitoDelMedio Entonces
-			Imprimir "Felicidades acertaste"
-			acertadaJugador1=1
+			Imprimir "Felicidades acertaste ", nickname1
+			acertadaJugador=1
 			
 		SiNo
 			Escribir "incorrecto te quedan 1 intento :D"
 			Leer respuesta1
 			
 			Si respuesta1=digitoDelMedio Entonces
-				Imprimir "Felicidades acertaste"
-				acertadaJugador1=1
+				Imprimir "Felicidades acertaste ", nickname1
+				acertadaJugador=1
 			SiNo
-				acertadaJugador1=0
+				Imprimir "perdiste todos tus intentos ", nickname1
+				Imprimir "El numero era " digitoDelMedio
+				acertadaJugador=0
+				Esperar 1 Segundos
 			Fin Si
 		Fin Si
 	Fin Si
-	
-	numeroAleatorio2=aleatorio(100,999)
-	aleatorioEnCaracter=ConvertirATexto(numeroAleatorio2)
+	acertadaJugador1=0+acertadaJugador
+FinFuncion
+
+Funcion acertadaJugador2=rondaa(nickname1,nickname2)
+	numeroAleatorio=aleatorio(100,999)
+	aleatorioEnCaracter=ConvertirATexto(numeroAleatorio)
 	digitoDelMedio=ConvertirANumero(subcadena(aleatorioEnCaracter,2,2))
-	imprimir digitoDelMedio
-	Escribir "Turno Del jugador2"
+	Escribir "Turno De " nickname2
 	leer respuesta2
 	Si respuesta2=digitoDelMedio Entonces
-		Imprimir "Felicidades acertaste"
+		Imprimir "Felicidades acertaste "
 		acertadaJugador2=1
 	SiNo
 		Escribir "incorrecto te quedan 2 intentos :D"
 		Leer respuesta2
 		
 		Si respuesta2=digitoDelMedio Entonces
-			Imprimir "Felicidades acertaste"
+			Imprimir "Felicidades acertaste "
 			acertadaJugador2=1
 		SiNo
 			Escribir "incorrecto te quedan 1 intento :D"
 			Leer respuesta2
 			
 			Si respuesta2=digitoDelMedio Entonces
-				Imprimir "Felicidades acertaste"
+				Imprimir "Felicidades acertaste "
 				acertadaJugador2=1
 			SiNo
-				acertadaJugador2=0
+				Imprimir "perdiste todos tus intentos ", nickname2
+				Imprimir "El numero era " digitoDelMedio
+				acertadaJugador=0
+				Esperar 1 Segundos
 			Fin Si
 		Fin Si
 	Fin Si
-	
-	
+FinFuncion
+
+
+Funcion impresionDeResultado(acertadaJugador1,acertadaJugador2,nickname1,nickname2)
 	Imprimir "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
-	Imprimir "Ronda1"
 	Si acertadaJugador2=acertadaJugador1 Entonces
 		Imprimir "Esto es un empate"
-		rondaJugador1ronda1=0
-		rondaJugador2ronda1=0
 	SiNo
 		Si acertadaJugador2<acertadaJugador1 Entonces
-			Imprimir "el jugador 1 ganooo"
-			rondaJugador1ronda1=1
-			rondaJugador2ronda1=0
+			Imprimir "Gano " nickname1
 		SiNo
 			Si acertadaJugador2>acertadaJugador1 Entonces
-				Imprimir "el jugador 2 ganooo"
-				rondaJugador2ronda1=1
-				rondaJugador1ronda1=0
+				Imprimir "Gano " nickname2
 			Fin Si
 		Fin Si
 	Fin Si
 	Imprimir "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
+FinFuncion
+
+
+funcion NumeroDelMedio(nickname1,nickname2)
+	Imprimir digitoDelMedio
+	acertadaJugador1=ronda(nickname1,nickname2)
+	imprimir digitoDelMedio
+	acertadaJugador2=rondaa(nickname1,nickname2)
+	rondaJugador1ronda1=acertadaJugador1
+	rondaJugador2ronda1=acertadaJugador2
+	Borrar Pantalla
+	Imprimir "PRIMERA RONDA"
+	impresionDeResultado(acertadaJugador1,acertadaJugador2,nickname1,nickname2)
 	Esperar 2 Segundos
-	Imprimir ""
+	
+	Borrar Pantalla
 	Imprimir "Ronda 2"
-	Esperar 1 Segundos
-	numeroAleatorio=aleatorio(100,999)
-	aleatorioEnCaracter=ConvertirATexto(numeroAleatorio)
-	digitoDelMedio=ConvertirANumero(subcadena(aleatorioEnCaracter,2,2))
-	Imprimir digitoDelMedio
-	Escribir " intenta adivinar el numero del medio del numero aleatorio"
-	Leer respuesta1
-	Si respuesta1=digitoDelMedio Entonces
-		Imprimir "Felicidades acertaste"
-		acertadaJugador1=1
-		
-	SiNo
-		Escribir "incorrecto te quedan 2 intentos :D"
-		Leer respuesta1
-		Si respuesta1=digitoDelMedio Entonces
-			Imprimir "Felicidades acertaste"
-			acertadaJugador1=1
-			
-		SiNo
-			Escribir "incorrecto te quedan 1 intento :D"
-			Leer respuesta1
-			
-			Si respuesta1=digitoDelMedio Entonces
-				Imprimir "Felicidades acertaste"
-				acertadaJugador1=1
-			SiNo
-				acertadaJugador1=0
-			Fin Si
-		Fin Si
-	Fin Si
-	
-	numeroAleatorio2=aleatorio(100,999)
-	aleatorioEnCaracter=ConvertirATexto(numeroAleatorio2)
-	digitoDelMedio=ConvertirANumero(subcadena(aleatorioEnCaracter,2,2))
-	imprimir digitoDelMedio
-	Escribir "Turno Del jugador2"
-	leer respuesta2
-	Si respuesta2=digitoDelMedio Entonces
-		Imprimir "Felicidades acertaste"
-		acertadaJugador2=1
-	SiNo
-		Escribir "incorrecto te quedan 2 intentos :D"
-		Leer respuesta2
-		
-		Si respuesta2=digitoDelMedio Entonces
-			Imprimir "Felicidades acertaste"
-			acertadaJugador2=1
-		SiNo
-			Escribir "incorrecto te quedan 1 intento :D"
-			Leer respuesta2
-			
-			Si respuesta2=digitoDelMedio Entonces
-				Imprimir "Felicidades acertaste"
-				acertadaJugador2=1
-			SiNo
-				acertadaJugador2=0
-			Fin Si
-		Fin Si
-	Fin Si
-	
-	
-	Imprimir "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
-	Imprimir "Ronda2"
-	Si acertadaJugador2=acertadaJugador1 Entonces
-		Imprimir "Esto es un empate"
-		rondaJugador1ronda2=0
-		rondaJugador2ronda2=0
-	SiNo
-		Si acertadaJugador2<acertadaJugador1 Entonces
-			Imprimir "el jugador 1 ganooo"
-			rondaJugador1ronda2=1
-			rondaJugador2ronda2=0
-		SiNo
-			Si acertadaJugador2>acertadaJugador1 Entonces
-				Imprimir "el jugador 2 ganooo"
-				rondaJugador2ronda2=1
-				rondaJugador1ronda2=0
-			Fin Si
-		Fin Si
-	Fin Si
-	Imprimir "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
-	
+	acertadaJugador1=ronda(nickname1,nickname2)
+	acertadaJugador2=rondaa(nickname1,nickname2)
+	rondaJugador1ronda2=acertadaJugador1
+	rondaJugador2ronda2=acertadaJugador2
+	Borrar Pantalla
+	Imprimir "SEGUNDA RONDA"
+	impresionDeResultado(acertadaJugador1,acertadaJugador2,nickname1,nickname2)
 	Esperar 2 Segundos
-	Imprimir ""
+	Borrar Pantalla
+	
 	Imprimir "Ronda 3"
-	Esperar 1 Segundos
-	numeroAleatorio=aleatorio(100,999)
-	aleatorioEnCaracter=ConvertirATexto(numeroAleatorio)
-	digitoDelMedio=ConvertirANumero(subcadena(aleatorioEnCaracter,2,2))
-	Imprimir digitoDelMedio
-	Escribir " intenta adivinar el numero del medio del numero aleatorio"
-	Leer respuesta1
-	Si respuesta1=digitoDelMedio Entonces
-		Imprimir "Felicidades acertaste"
-		acertadaJugador1=1
-		
-	SiNo
-		Escribir "incorrecto te quedan 2 intentos :D"
-		Leer respuesta1
-		Si respuesta1=digitoDelMedio Entonces
-			Imprimir "Felicidades acertaste"
-			acertadaJugador1=1
-			
-		SiNo
-			Escribir "incorrecto te quedan 1 intento :D"
-			Leer respuesta1
-			
-			Si respuesta1=digitoDelMedio Entonces
-				Imprimir "Felicidades acertaste"
-				acertadaJugador1=1
-			SiNo
-				acertadaJugador1=0
-			Fin Si
-		Fin Si
-	Fin Si
-	
-	numeroAleatorio2=aleatorio(100,999)
-	aleatorioEnCaracter=ConvertirATexto(numeroAleatorio2)
-	digitoDelMedio=ConvertirANumero(subcadena(aleatorioEnCaracter,2,2))
-	imprimir digitoDelMedio
-	Escribir "Turno Del jugador2"
-	leer respuesta2
-	Si respuesta2=digitoDelMedio Entonces
-		Imprimir "Felicidades acertaste"
-		acertadaJugador2=1
-	SiNo
-		Escribir "incorrecto te quedan 2 intentos :D"
-		Leer respuesta2
-		
-		Si respuesta2=digitoDelMedio Entonces
-			Imprimir "Felicidades acertaste"
-			acertadaJugador2=1
-		SiNo
-			Escribir "incorrecto te quedan 1 intento :D"
-			Leer respuesta2
-			
-			Si respuesta2=digitoDelMedio Entonces
-				Imprimir "Felicidades acertaste"
-				acertadaJugador2=1
-			SiNo
-				acertadaJugador2=0
-			Fin Si
-		Fin Si
-	Fin Si
-	
-	
-	Imprimir "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
-	Imprimir "Ronda3"
-	Si acertadaJugador2=acertadaJugador1 Entonces
-		Imprimir "Esto es un empate"
-		rondaJugador1ronda3=0
-		rondaJugador2ronda3=0
-	SiNo
-		Si acertadaJugador2<acertadaJugador1 Entonces
-			Imprimir "el jugador 1 ganooo"
-			rondaJugador1ronda3=1
-			rondaJugador2ronda3=0
-		SiNo
-			Si acertadaJugador2>acertadaJugador1 Entonces
-				Imprimir "el jugador 2 ganooo"
-				rondaJugador2ronda3=1
-				rondaJugador1ronda3=0
-			Fin Si
-		Fin Si
-	Fin Si
-	Imprimir "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
-	
+	acertadaJugador1=ronda(nickname1,nickname2)
+	acertadaJugador2=rondaa(nickname1,nickname2)
+	rondaJugador1ronda3=acertadaJugador1
+	rondaJugador2ronda3=acertadaJugador2
+	Borrar Pantalla
+	Imprimir "TERCERA RONDA"
+	impresionDeResultado(acertadaJugador1,acertadaJugador2,nickname1,nickname2)
 	rondasGanadasJugador1=rondaJugador1ronda1+rondaJugador1ronda2+rondaJugador1ronda3
 	rondasGanadasJugador2=rondaJugador2ronda1+rondaJugador2ronda2+rondaJugador2ronda3
-	Imprimir rondasGanadasJugador1
-	Imprimir rondasGanadasJugador2
 	Si rondasGanadasJugador1>rondasGanadasJugador2 Entonces
 		Imprimir "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
 		Imprimir "FELICIDADES JUGADOR 1 GANASTE"
@@ -264,5 +129,42 @@ Algoritmo Alumno_4_Mancilla
 			Imprimir "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
 		FinSi
 	FinSi
-	
+FinFuncion
+Funcion nickname1= calculo()
+	nick=ConvertirATexto(aleatorio(10,99))
+	escribir "Ingrese el nombre del jugador 1"
+	leer name
+	tresCaracteres=Subcadena(name,1,3)
+	nickname1=concatenar(tresCaracteres,nick)
+	imprimir "El nickname del jugador 1 sera: ",nickname1
+Fin Funcion
+
+Funcion nickname2=calculo2()
+	nick2=ConvertirATexto(aleatorio(10,99))
+	escribir "Ingrese el nombre del jugador 2"
+	leer name2
+	tresCaracteres=Subcadena(name2,1,3)
+	nickname2=concatenar(tresCaracteres,nick2)
+	Imprimir "El nickname del jugador 2 sera: ",nickname2 
+Fin Funcion
+
+
+
+
+
+Algoritmo Alumno_4_Mancilla
+	nickname1= calculo()
+	nickname2=calculo2()
+	NumeroDelMedio(nickname1,nickname2)
 FinAlgoritmo
+
+
+
+
+
+
+
+
+
+
+
